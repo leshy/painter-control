@@ -1,3 +1,2 @@
-# control
+# Painter Controller 
 
-a [Sails](http://sailsjs.org) application
