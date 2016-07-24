@@ -44,7 +44,12 @@ store = createStore(
 history = syncHistoryWithStore browserHistory, store
 io = require('sails.io.js')( require('socket.io-client') )
 
-io.socket.on 'connect' -> console.log 'connected'
+io.socket.on 'connect' -> 
+  console.log 'connected!'
+  io.socket.get '/sub', (err,data)->
+    console.log "subscribe", err,data
+
+    reactDom.render App(), document.getElementById('app')
 
 
 
@@ -54,7 +59,4 @@ App = ->
       react initialized
     </div>
   )``
-
-console.log 'reactdom render!'
-reactDom.render App(), document.getElementById('app')
 
