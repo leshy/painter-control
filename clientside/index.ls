@@ -48,6 +48,11 @@ io.socket.on 'connect' ->
   console.log 'connected!'
   
   io.socket.get '/worker', -> map it, -> store.dispatch actions.workers.add it
+  io.socket.on 'worker', (event) ->
+    console.log "EVENT",event
+    switch event.verb
+      | "created" => store.dispatch actions.workers.add event.data
+      | "destroyed" => store.dispatch actions.workers.remove event.id
   
   io.socket.get '/job', -> map it, -> store.dispatch actions.jobs.add it
   reactDom.render(
