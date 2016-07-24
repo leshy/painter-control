@@ -1,0 +1,26 @@
+._views_home__root {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    flex-flow: row;
+}
+
+
+._views_home__left {
+    -webkit-box-flex: 1;
+            flex: 1 1 50%;
+}
+
+._views_home__right {
+    -webkit-box-flex: 1;
+            flex: 1 1 50%;
+}
+
+._views_home__title {
+    font-size: 1.5em;
+    color: white;
+    background: black;
+    padding: .25em;
+    text-align: center;
+}

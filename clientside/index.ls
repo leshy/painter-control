@@ -50,15 +50,6 @@ io.socket.on 'connect' ->
   io.socket.get '/worker', -> map it, -> store.dispatch actions.worker.add it
   
   io.socket.get '/job', -> map it, -> store.dispatch actions.job.add it
-    
-  reactDom.render App(), document.getElementById('app')
+  reactDom.render views.home(), document.getElementById('app')
 
-
-
-App = ->
-  ``(
-    <div>
-      react initialized
-    </div>
-  )``
 
