@@ -27,7 +27,7 @@ require! {
   'react-addons-css-transition-group': Trans
 }
 
-store = createStore(
+store = window.store = createStore(
     combineReducers({
       ...reducers,
       routing: routerReducer
@@ -46,10 +46,12 @@ io = require('sails.io.js')( require('socket.io-client') )
 
 io.socket.on 'connect' -> 
   console.log 'connected!'
-  io.socket.get '/sub', (err,data)->
-    console.log "subscribe", err,data
-
-    reactDom.render App(), document.getElementById('app')
+  
+  io.socket.get '/worker', -> map it, -> store.dispatch actions.worker.add it
+  
+  io.socket.get '/job', -> map it, -> store.dispatch actions.job.add it
+    
+  reactDom.render App(), document.getElementById('app')
 
 
 
