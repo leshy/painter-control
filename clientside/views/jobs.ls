@@ -26,6 +26,9 @@ require! {
   'react-addons-css-transition-group': Trans
 }
 
-module.exports = do
-  home: require './home.ls'
-  jobs: require './jobs.ls'
+module.exports = connect(    
+  (state, props) -> jobs: state.jobs
+  (dispatch, props) -> {}
+  ) ({ jobs }) -> 
+    ``( <div>JOBS JOBS!</div> )``
+

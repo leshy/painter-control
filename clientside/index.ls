@@ -47,9 +47,15 @@ io = require('sails.io.js')( require('socket.io-client') )
 io.socket.on 'connect' -> 
   console.log 'connected!'
   
-  io.socket.get '/worker', -> map it, -> store.dispatch actions.worker.add it
+  io.socket.get '/worker', -> map it, -> store.dispatch actions.workers.add it
   
-  io.socket.get '/job', -> map it, -> store.dispatch actions.job.add it
-  reactDom.render views.home(), document.getElementById('app')
+  io.socket.get '/job', -> map it, -> store.dispatch actions.jobs.add it
+  reactDom.render(
 
+    ``(
+      <Provider store={store}>
+        <views.home />
+      </Provider>
+
+    )`` , document.getElementById('app'))
 

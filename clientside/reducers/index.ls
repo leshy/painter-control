@@ -12,5 +12,5 @@ crud = (name) ->
       | otherwise => state
   
 module.exports =
-  job: crud 'job'
-  worker: crud 'worker'
+  jobs: crud 'jobs'
+  workers: crud 'workers'

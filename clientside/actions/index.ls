@@ -6,5 +6,5 @@ crud = (name) ->
     
   
 module.exports = do
-  worker: crud 'worker'
-  job: crud 'job'
+  workers: crud 'workers'
+  jobs: crud 'jobs'
