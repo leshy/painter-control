@@ -44,32 +44,29 @@ Jobs = connect(
 
     )``
 
-
-Workers = connect(    
-  (state, props) -> workers: state.workers
-  (dispatch, props) -> {}
-  ) ({ workers }) ->
-    
-    elements = map workers, (worker) -> ``( <div key={worker.id} > {worker.id} </div> )``
-    
-    ``(
-      <Collection name="Workers">
-        { elements }
-      </Collection>
-
-    )``
+Job = ({id, job, name, state}) -> ``( <div> {id} {name} {state} </div> )``
 
 
+Collection = ({name, ChildView})->
 
-Collection = ({name, children})->
+  ConnectedView = connect(    
+    (state, props) -> elements: state[name]
+    (dispatch, props) -> {}
+    ) ({ elements }) ->
+      children = map elements, (element) ->
+        ``( <ChildView key={element.id} {...element} /> )``
+      ``(
+        <div className={style.elements}>
+          { children }
+        </div>
+      )``
+  
   ``(
     <div className={style.collection}>
       <div className={style.title}>
         { name }
       </div>
-      <div className={style.elements}>
-        { children }
-      </div>
+      <ConnectedView />
     </div>
 
   )``
@@ -78,11 +75,11 @@ module.exports = ->
   ``(
     <div className={style.root}>
       <div className={style.left}>
-        <Workers />
+        <Collection name="workers" ChildView={Job} />
       </div>
 
       <div className={style.right}>
-        <Jobs />
+        <Collection name="jobs" ChildView={Job} />
       </div>
   
     </div>
