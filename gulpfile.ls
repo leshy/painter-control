@@ -150,7 +150,7 @@ bundleCss = (source, basename) ->
   .pipe gulp.dest staticRoot
   
 gulp.task 'css', ->
-  bundleCss './clientside/style.less', 'style'
+  bundleCss './clientside/less/style.less', 'style'
   .pipe livereload()
   true
 

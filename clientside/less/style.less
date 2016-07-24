@@ -1,0 +1,69 @@
+@import "Font-Awesome/less/font-awesome.less";
+@fa-font-path: "/fonts";
+
+
+@lineColor: lightgray;
+
+@lightBlue: #64adca;
+@darkBlue: rgb(37, 42, 58);
+@darkGreen: darken(lightgreen,30%);
+@darkRed: darken(red,30%);
+@lightRed: #d7786f;
+@lightGray: darken(white,10%);
+@highlight: darken(white,20%);
+@darkGray: darken(white,60%);
+@grayBg: darken(white,5%);
+@border: darken(white, 10%);
+@outerBorderColor : black;
+@monthBorderColor: black;
+@borderColor: darken(white,20%);
+@green: rgb(97, 178, 167);
+@blue: rgb(97, 137, 178);
+@airbnb: lighten(#ff5a60, 10%);
+
+@mw: 1024px;
+
+
+body {
+    padding: 0;
+    margin: 0;
+    color: white;
+    background: black;
+    overflow: auto;
+}
+
+.anim { transition: all 0.5s ease;  }
+.animFast { transition: all 0.25s ease; }
+.animMegaFast { transition: all 0.15s ease; }
+
+.boxShadow {
+    box-shadow: .25em .25em 1em rgba(0,0,0,0.4);
+    border: .1em solid @lightGray;
+
+}
+
+.outlineShadow {
+    box-shadow: 0.1em 0.1em rgba(1,1,1,1);
+}
+
+
+.boxShadowColor(@color) {
+    box-shadow: 0.25vmin 0.25vmin 0 @color;
+}
+
+
+.boxShadowBigColor(@color) {
+    box-shadow: 0.75vmin 0.75vmin 0 @color;
+}
+
+.boxShadowBig {
+    box-shadow: 0.75vmin 0.75vmin 0 rgba(1,1,1,0.2);
+}
+
+.textShadow { text-shadow: 0.2vmin 0.2vmin 0 black; }
+.textShadowBig { text-shadow: 0.3vmin 0.3vmin 0 black; }
+.textShadowColor(@color) { text-shadow: 0.2vmin 0.2vmin 0 @color; }
+
+* {
+    box-sizing: border-box;
+}
