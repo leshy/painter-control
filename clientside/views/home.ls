@@ -44,8 +44,9 @@ Jobs = connect(
 
     )``
 
-Job = ({id, job, name, state}) -> ``( <div> {id} {name} {state} </div> )``
 
+Job = ({id, job, name, state}) -> ``( <div className={style.job}> {id} {name} {state} </div> )``
+Worker = ({id, name, state}) -> ``( <div className={style.worker}> {id} {name} {state} </div> )``
 
 Collection = ({name, ChildView})->
 
@@ -55,6 +56,8 @@ Collection = ({name, ChildView})->
     ) ({ elements }) ->
       children = map elements, (element) ->
         ``( <ChildView key={element.id} {...element} /> )``
+
+      if not children.length then children = ``( <div>no {name}</div> )``
       ``(
         <div className={style.elements}>
           { children }
@@ -75,7 +78,7 @@ module.exports = ->
   ``(
     <div className={style.root}>
       <div className={style.left}>
-        <Collection name="workers" ChildView={Job} />
+        <Collection name="workers" ChildView={Worker} />
       </div>
 
       <div className={style.right}>
