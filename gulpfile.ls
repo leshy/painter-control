@@ -181,7 +181,7 @@ gulp.task 'watchCss', <[ liveReload ]>, ->
   logChange gulp.watch 'clientside/**/*.less', ['css']
   
 gulp.task 'watchJs', <[ liveReload ]>, ->
-  logChange gulp.watch 'clientside/**/*.ls', ['js']
+  logChange gulp.watch 'clientside/**/*.*', ['js']
   
 gulp.task 'watch', <[ watchJs watchCss liveReload ]>
 

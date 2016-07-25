@@ -6,19 +6,30 @@
     flex-flow: row;
 }
 
+._views_home__horizontalFlex {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    flex-flow: column;
+}
 
-._views_home__left {
+._views_home__flexy {
     -webkit-box-flex: 1;
             flex: 1 1 50%;
 }
 
-._views_home__right {
-    -webkit-box-flex: 1;
-            flex: 1 1 50%;
+._views_home__window {
+    border: 1px solid black;
 }
+
+._views_home__h50 {
+    height: 50vh;
+}
+
 
 ._views_home__title {
-    font-size: 1.5em;
+    font-size: 1.25em;
     color: white;
     background: black;
     padding: .25em;
@@ -32,4 +43,17 @@
 
 ._views_home__worker {
     margin: 1em;
+}
+
+
+._views_home__elements {
+    height: 100%;
+}
+
+._views_home__collection { height: 100%; }
+._views_home__static {
+
+    width: 100%;
+    height: 100%;
+    background: url("/img/static.gif");
 }

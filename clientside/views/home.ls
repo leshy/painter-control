@@ -47,6 +47,7 @@ Jobs = connect(
 
 Job = ({id, job, name, state}) -> ``( <div className={style.job}> {id} {name} {state} </div> )``
 Worker = ({id, name, state}) -> ``( <div className={style.worker}> {id} {name} {state} </div> )``
+Log = ({id, tags, text}) -> ``( <div className={style.worker}> {tags.join(',')} {text} </div> )``
 
 Collection = ({name, ChildView})->
 
@@ -57,7 +58,7 @@ Collection = ({name, ChildView})->
       children = map elements, (element) ->
         ``( <ChildView key={element.id} {...element} /> )``
 
-      if not children.length then children = ``( <div>no {name}</div> )``
+      if not children.length then children = ``( <div className={style.static} /> )``
       ``(
         <div className={style.elements}>
           { children }
@@ -71,22 +72,26 @@ Collection = ({name, ChildView})->
       </div>
       <ConnectedView />
     </div>
-
   )``
 
 module.exports = ->
   ``(
     <div className={style.root}>
-      <div className={style.left}>
-        <Collection name="workers" ChildView={Worker} />
+      <div className={style.flexy}>
+        <div className={style.horizontalFlex}>
+          <div className={cn(style.flexy, style.window, style.h50)}>
+            <Collection name="workers" ChildView={Worker} />
+          </div>
+          <div className={cn(style.flexy, style.window, style.h50)}>
+            <Collection name="log" ChildView={Worker} />
+          </div>
+        </div>
       </div>
 
-      <div className={style.right}>
+      <div className={cn(style.flexy, style.window)}>
         <Collection name="jobs" ChildView={Job} />
       </div>
   
     </div>
   )``
-
-
 
